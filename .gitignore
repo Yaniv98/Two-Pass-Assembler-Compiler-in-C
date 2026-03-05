@@ -1,0 +1,11 @@
+# Object files created during compilation
+*.o
+
+# The final executable file
+assembler
+
+# Assembly output files generated during standard runs
+*.am
+*.ob
+*.ent
+*.ext
