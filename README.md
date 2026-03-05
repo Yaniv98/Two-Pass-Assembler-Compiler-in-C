@@ -40,13 +40,16 @@ The project is divided into modular C files, each responsible for a specific com
 
 ## Build Instructions
 The project includes a `makefile` for easy compilation. To build the assembler, simply open your terminal in the project directory and run:
+```bash
 make
+```
 This will compile all .c files and generate an executable named assembler.
 
 ## How to run
 Run the assembler by passing the names of your assembly source files (without the .as extension) as command-line arguments. You can process multiple files in a single run:
+```bash
 ./assembler file1 file2
-
+```
 ## Input
 * <filename>.as : The source assembly file.
 
@@ -59,4 +62,33 @@ If the assembly code is valid and contains no errors, the program will generate 
 
 ## Cleanup
 To remove all compiled object files and generated outputs (.am, .ob, .ent, .ext), run:
+```bash
 make clean
+```
+## Tests & Samples
+The repository includes a comprehensive set of test cases to demonstrate the assembler's capabilities and robustness.
+
+### Tests Directory
+The `/Tests` directory contains various assembly source files (`.as`) used for integration testing:
+* **Valid Inputs:** `valid1.as`, `valid2.as`, and `valid3.as` demonstrate successful assembly of different instruction sets and directives.
+* **Error Handling:** `error1.as` and `error2.as` contain intentional syntax and logical errors to test the program's error detection and reporting mechanisms.
+* **Complex Example:** `instructionsExample.as` provides a broad use-case of the fictional language's features.
+
+### Sample Directory (Output Example)
+To illustrate the complete compilation flow, the `/Sample` directory contains both the source and all generated output files for a single representative case (`instructionsExample`):
+* `instructionsExample.as`: The original source code.
+* `instructionsExample.am`: The source after macro expansion.
+* `instructionsExample.ob`: The final object code in Base64 format.
+* `instructionsExample.ent` & `instructionsExample.ext`: The resolved entry and external symbol tables.
+
+## How to Run Tests
+To run the assembler on the provided test cases, first build the project using `make`, then execute:
+
+# Example: Running a valid test case
+```bash
+./assembler Tests/valid1
+```
+# Example: Running a test case with errors
+```bash
+./assembler Tests/error1
+```
